@@ -1,5 +1,7 @@
 import 'package:iterable_extensions/iterable_extensions.dart';
 
+import 'thing.model.dart';
+
 void main() {
   print('🚀 Iterable Extensions Examples\n');
 
@@ -7,15 +9,21 @@ void main() {
   print('1. Null-safe operations:');
   final numbers = [1, 2, 3, 4, 5];
   final emptyList = <int>[];
-
+  const things = [
+    Thing(thing: '1'),
+    Thing(thing: '2'),
+    Thing(thing: '3'),
+  ];
+  const thing = Thing(thing: '1');
   print('  numbers.firstOrNull: ${numbers.firstOrNull}'); // 1
   print('  emptyList.firstOrNull: ${emptyList.firstOrNull}'); // null
   print(
       '  numbers.firstWhereOrNull((n) => n.isEven): ${numbers.firstWhereOrNull((n) => n.isEven)}'); // 2
   print(
       '  numbers.elementAtOrNull(10): ${numbers.elementAtOrNull(10)}'); // null
-  print('');
 
+  print(' things.indexOfOrNull(thing): ${things.indexOfOrNull(thing)} '); //0
+  print('');
   // Example 2: Collection utilities
   print('2. Collection utilities:');
   final fruits = ['apple', 'banana', 'apricot', 'blueberry', 'avocado'];

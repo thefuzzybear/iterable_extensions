@@ -142,6 +142,26 @@ extension IterableExtension<T> on Iterable<T> {
     return null; // Index is out of bounds
   }
 
+  /// Returns the index of the first occurrence of [value] in the iterable,
+  /// or null if the value is not found.
+  ///
+  /// Example:
+  /// ```
+  /// final list = ['a', 'b', 'c'];
+  /// print(list.indexOfOrNull('b')); // 1
+  /// print(list.indexOfOrNull('z')); // null
+  /// ```
+  int? indexOfOrNull(dynamic value) {
+    int index = 0;
+    for (final element in this) {
+      if (element == value) {
+        return index;
+      }
+      index++;
+    }
+    return null;
+  }
+
   /// Groups elements by the result of [keySelector].
   ///
   /// Example:

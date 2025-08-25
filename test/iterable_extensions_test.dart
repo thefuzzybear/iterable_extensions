@@ -1,6 +1,8 @@
 import 'package:test/test.dart';
 import 'package:iterable_extensions/iterable_extensions.dart';
 
+import '../example/thing.model.dart';
+
 void main() {
   group('Null-safe operations', () {
     test('firstWhereOrNull returns first matching element', () {
@@ -51,6 +53,19 @@ void main() {
       expect(numbers.elementAtOrNull(1), equals(20));
       expect(numbers.elementAtOrNull(5), isNull);
       expect(numbers.elementAtOrNull(-1), isNull);
+    });
+
+    test('elementAtOrNull returns element at index or null', () {
+      const things = [
+        Thing(thing: '1'),
+        Thing(thing: '2'),
+        Thing(thing: '3'),
+      ];
+      const thing = Thing(thing: '1');
+      const thing_4 = Thing(thing: '4');
+
+      expect(things.indexOfOrNull(thing), equals(0));
+      expect(things.indexOfOrNull(thing_4), isNull);
     });
   });
 
